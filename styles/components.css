@@ -30,6 +30,7 @@
 }
 
 .nav__logo {
+  font-family: var(--font-display);
   font-size: var(--fs-lg);
   font-weight: var(--fw-bold);
   letter-spacing: var(--ls-tight);
@@ -221,9 +222,9 @@
 
 .card:hover {
   background: var(--bg-card-hover);
-  border-color: rgba(79, 143, 255, 0.25);
-  box-shadow: 0 0 0 1px rgba(79, 143, 255, 0.08), var(--shadow-lg);
-  transform: none;
+  border-color: rgba(14, 165, 160, 0.3);
+  box-shadow: 0 0 0 1px rgba(14, 165, 160, 0.08), var(--shadow-lg);
+  transform: translateY(-3px);
 }
 
 .card:hover::before {
@@ -296,21 +297,21 @@
 
 .badge--accent {
   color: var(--accent);
-  border-color: rgba(79, 143, 255, 0.2);
-  background: rgba(79, 143, 255, 0.08);
+  border-color: rgba(14, 165, 160, 0.25);
+  background: rgba(14, 165, 160, 0.08);
   border-radius: 4px;
 }
 
 .badge--violet {
-  color: var(--accent-secondary);
-  border-color: rgba(167, 139, 250, 0.2);
+  color: #a78bfa;
+  border-color: rgba(167, 139, 250, 0.25);
   background: rgba(167, 139, 250, 0.08);
   border-radius: 4px;
 }
 
 .badge--success {
   color: var(--success);
-  border-color: rgba(52, 211, 153, 0.2);
+  border-color: rgba(52, 211, 153, 0.25);
   background: rgba(52, 211, 153, 0.08);
   border-radius: 4px;
 }

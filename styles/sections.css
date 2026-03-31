@@ -19,12 +19,13 @@
   overflow: hidden;
 }
 
-/* Dot grid — más técnico, sin animación */
+/* Dot grid — técnico y sutil */
 .hero__grid {
   position: absolute;
   inset: -50%;
-  background-image: radial-gradient(rgba(14, 165, 160, 0.15) 1px, transparent 1px);
-  background-size: 28px 28px;
+  background-image: radial-gradient(rgba(14, 165, 160, 0.1) 1px, transparent 1px);
+  background-size: 30px 30px;
+  animation: gridPulse 6s ease-in-out infinite;
 }
 
 .hero__glow {
@@ -124,13 +125,15 @@
   animation: fadeIn 0.8s var(--ease-out) 0.3s both;
 }
 
-/* Foto editorial: rectángulo vertical, no círculo */
+/* Foto editorial: rectángulo vertical con borde animado */
 .hero__photo-border {
   width: 280px;
-  height: 320px;
+  height: 340px;
   border-radius: var(--radius-xl);
   padding: 3px;
   background: var(--gradient-primary);
+  background-size: 200% 200%;
+  animation: gradientShift 4s ease-in-out infinite;
   position: relative;
 }
 
@@ -139,7 +142,7 @@
   position: absolute;
   inset: -12px;
   border-radius: calc(var(--radius-xl) + 12px);
-  border: 1px solid var(--border-color);
+  border: 1px solid rgba(14, 165, 160, 0.15);
   animation: pulse 3s ease-in-out infinite;
 }
 
@@ -148,7 +151,7 @@
   height: 100%;
   border-radius: calc(var(--radius-xl) - 3px);
   object-fit: cover;
-  object-position: top center;
+  object-position: center 15%;
   background: var(--bg-secondary);
 }
 
@@ -271,6 +274,23 @@
 }
 
 /* ---- PORTFOLIO — layout asimétrico ---- */
+.portfolio {
+  position: relative;
+}
+
+.portfolio::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(14, 165, 160, 0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+
 .portfolio__grid {
   display: grid;
   grid-template-columns: 1.4fr 1fr;
@@ -385,10 +405,10 @@
 .cv__stack-section {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
-  padding: var(--space-lg);
-  margin-bottom: var(--space-md);
-  transition: border-color var(--duration-normal);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl) var(--space-xl);
+  margin-bottom: var(--space-lg);
+  transition: all var(--duration-normal) var(--ease-out);
 }
 
 .cv__stack-section:last-child {
@@ -396,7 +416,9 @@
 }
 
 .cv__stack-section:hover {
-  border-color: var(--border-color-hover);
+  border-color: rgba(14, 165, 160, 0.2);
+  background: var(--bg-card-hover);
+  transform: translateY(-2px);
 }
 
 .cv__stack-label {
@@ -405,7 +427,7 @@
   color: var(--accent);
   letter-spacing: var(--ls-wider);
   text-transform: uppercase;
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-lg);
   display: flex;
   align-items: center;
   gap: var(--space-sm);
@@ -413,26 +435,47 @@
 
 .cv__stack-label::before {
   content: '';
-  width: 14px;
-  height: 1px;
-  background: var(--accent);
+  width: 18px;
+  height: 2px;
+  background: var(--gradient-primary);
+  border-radius: var(--radius-full);
 }
 
 /* ---- EXPERIENCE ---- */
+.experience {
+  background: var(--bg-secondary);
+}
+
 .experience__content {
-  max-width: 720px;
+  max-width: 760px;
   margin: 0 auto;
 }
 
 /* ---- CONTACT — fondo con toque de acento ---- */
 .contact {
-  background: linear-gradient(180deg, var(--bg-secondary) 0%, rgba(14, 165, 160, 0.04) 100%);
+  background: linear-gradient(180deg, var(--bg-secondary) 0%, rgba(14, 165, 160, 0.06) 100%);
+  position: relative;
+}
+
+.contact::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(14, 165, 160, 0.05) 0%, transparent 70%);
+  pointer-events: none;
 }
 
 .contact__content {
   text-align: center;
-  max-width: 600px;
+  max-width: 620px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
 .contact__message {
@@ -442,19 +485,33 @@
   margin-bottom: var(--space-2xl);
 }
 
+.contact__message strong {
+  color: var(--text-primary);
+}
+
 .contact__actions {
   display: flex;
   justify-content: center;
-  gap: var(--space-md);
+  gap: var(--space-lg);
   flex-wrap: wrap;
   margin-bottom: var(--space-3xl);
+}
+
+.contact__actions .btn--primary {
+  animation: pulse 3s ease-in-out infinite;
 }
 
 .contact__info {
   display: flex;
   justify-content: center;
-  gap: var(--space-3xl);
+  gap: var(--space-2xl);
   flex-wrap: wrap;
+  padding: var(--space-xl) var(--space-2xl);
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  max-width: 520px;
+  margin: 0 auto;
 }
 
 .contact__info-item {
@@ -469,6 +526,7 @@
   width: 18px;
   height: 18px;
   color: var(--accent);
+  flex-shrink: 0;
 }
 
 /* ---- RESPONSIVE ---- */

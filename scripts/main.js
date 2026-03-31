@@ -39,21 +39,24 @@ document.addEventListener('DOMContentLoaded', () => {
       background: var(--accent);
       pointer-events: none;
       z-index: 99999;
-      transform: translate(-50%, -50%);
-      transition: transform 0.15s var(--ease-out), opacity 0.2s, width 0.2s, height 0.2s;
+      left: 0;
+      top: 0;
+      will-change: transform;
+      transition: width 0.2s var(--ease-out), height 0.2s var(--ease-out),
+                  background 0.2s, border 0.2s, opacity 0.2s;
       opacity: 0;
-      mix-blend-mode: normal;
     `;
     document.body.appendChild(cursor);
 
-    let cursorX = 0;
-    let cursorY = 0;
+    let mouseX = 0;
+    let mouseY = 0;
+    let renderX = 0;
+    let renderY = 0;
+    const LERP = 0.35; // higher = snappier (0-1)
 
     document.addEventListener('mousemove', (e) => {
-      cursorX = e.clientX;
-      cursorY = e.clientY;
-      cursor.style.left = cursorX + 'px';
-      cursor.style.top = cursorY + 'px';
+      mouseX = e.clientX;
+      mouseY = e.clientY;
       cursor.style.opacity = '1';
     });
 
@@ -61,12 +64,20 @@ document.addEventListener('DOMContentLoaded', () => {
       cursor.style.opacity = '0';
     });
 
+    function animateCursor() {
+      renderX += (mouseX - renderX) * LERP;
+      renderY += (mouseY - renderY) * LERP;
+      cursor.style.transform = `translate(${renderX - 4}px, ${renderY - 4}px)`;
+      requestAnimationFrame(animateCursor);
+    }
+    animateCursor();
+
     // Expand cursor on interactive elements
     const interactives = document.querySelectorAll('a, button, .card, .cv__download-card, .badge');
     interactives.forEach((el) => {
       el.addEventListener('mouseenter', () => {
-        cursor.style.width = '20px';
-        cursor.style.height = '20px';
+        cursor.style.width = '24px';
+        cursor.style.height = '24px';
         cursor.style.background = 'transparent';
         cursor.style.border = '1.5px solid var(--accent)';
       });
@@ -167,22 +178,30 @@ document.addEventListener('DOMContentLoaded', () => {
   // ---- Intersection Observer: Scroll Reveal ----
   const revealElements = document.querySelectorAll('.reveal');
 
-  const revealObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    },
-    {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px',
-    }
-  );
+  // Mark body so CSS knows JS loaded (disables the 3s fallback animation)
+  document.body.classList.add('js-loaded');
 
-  revealElements.forEach((el) => revealObserver.observe(el));
+  if ('IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.05,
+        rootMargin: '0px 0px -20px 0px',
+      }
+    );
+
+    revealElements.forEach((el) => revealObserver.observe(el));
+  } else {
+    // Fallback for browsers without IntersectionObserver
+    revealElements.forEach((el) => el.classList.add('visible'));
+  }
 
   // ---- Smooth scroll — offset robusto con nav.offsetHeight ----
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
