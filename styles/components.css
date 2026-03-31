@@ -50,6 +50,7 @@
   gap: var(--space-xl);
 }
 
+/* ---- Nav links: removed underline animation, cleaner active state ---- */
 .nav__link {
   font-size: var(--fs-sm);
   font-weight: var(--fw-medium);
@@ -61,26 +62,13 @@
   padding: var(--space-xs) 0;
 }
 
-.nav__link::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--gradient-primary);
-  border-radius: var(--radius-full);
-  transition: width var(--duration-normal) var(--ease-out);
-}
-
-.nav__link:hover,
-.nav__link.active {
+.nav__link:hover {
   color: var(--text-primary);
 }
 
-.nav__link:hover::after,
-.nav__link.active::after {
-  width: 100%;
+.nav__link.active {
+  color: var(--text-primary);
+  font-weight: var(--fw-semibold);
 }
 
 /* Hamburger */
@@ -186,14 +174,18 @@
   transform: translateY(-2px);
 }
 
+/* ---- Ghost button: added background on hover ---- */
 .btn--ghost {
   background: transparent;
   color: var(--text-secondary);
   padding: 8px 16px;
+  border-radius: var(--radius-md);
+  transition: all var(--duration-normal) var(--ease-out);
 }
 
 .btn--ghost:hover {
   color: var(--accent);
+  background: var(--accent-glow);
 }
 
 .btn__icon {
@@ -202,7 +194,7 @@
   flex-shrink: 0;
 }
 
-/* ---- Cards ---- */
+/* ---- Cards — removed translateY lift, cleaner border glow ---- */
 .card {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
@@ -229,9 +221,9 @@
 
 .card:hover {
   background: var(--bg-card-hover);
-  border-color: var(--border-color-hover);
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
+  border-color: rgba(79, 143, 255, 0.25);
+  box-shadow: 0 0 0 1px rgba(79, 143, 255, 0.08), var(--shadow-lg);
+  transform: none;
 }
 
 .card:hover::before {
@@ -279,7 +271,7 @@
   gap: var(--space-lg);
 }
 
-/* ---- Badges / Chips ---- */
+/* ---- Badges / Chips — border-radius 4px, more technical feel ---- */
 .badge {
   display: inline-flex;
   align-items: center;
@@ -288,7 +280,7 @@
   font-family: var(--font-mono);
   font-size: var(--fs-xs);
   font-weight: var(--fw-medium);
-  border-radius: var(--radius-full);
+  border-radius: 4px;
   background: var(--gradient-subtle);
   color: var(--text-secondary);
   border: 1px solid var(--border-color);
@@ -306,18 +298,21 @@
   color: var(--accent);
   border-color: rgba(79, 143, 255, 0.2);
   background: rgba(79, 143, 255, 0.08);
+  border-radius: 4px;
 }
 
 .badge--violet {
   color: var(--accent-secondary);
   border-color: rgba(167, 139, 250, 0.2);
   background: rgba(167, 139, 250, 0.08);
+  border-radius: 4px;
 }
 
 .badge--success {
   color: var(--success);
   border-color: rgba(52, 211, 153, 0.2);
   background: rgba(52, 211, 153, 0.08);
+  border-radius: 4px;
 }
 
 .badges-wrap {
@@ -326,7 +321,7 @@
   gap: var(--space-sm);
 }
 
-/* ---- Timeline ---- */
+/* ---- Timeline — removed glow noise from dots ---- */
 .timeline {
   position: relative;
   padding-left: var(--space-3xl);
@@ -360,12 +355,12 @@
   height: 12px;
   border-radius: 50%;
   background: var(--accent);
-  box-shadow: 0 0 0 4px var(--bg-primary), 0 0 20px var(--accent-glow-strong);
+  box-shadow: 0 0 0 3px var(--bg-primary);
 }
 
 .timeline__item:nth-child(2) .timeline__dot {
   background: var(--accent-secondary);
-  box-shadow: 0 0 0 4px var(--bg-primary), 0 0 20px var(--accent-secondary-glow);
+  box-shadow: 0 0 0 3px var(--bg-primary);
 }
 
 .timeline__date {

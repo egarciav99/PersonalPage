@@ -3,29 +3,102 @@
    ============================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
+
   // ---- Dynamic Year ----
   const yearEl = document.getElementById('footer-year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  // ---- Scroll Progress Bar ----
+  const progressBar = document.createElement('div');
+  progressBar.id = 'scroll-progress';
+  progressBar.style.cssText = `
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 2px;
+    width: 0%;
+    background: var(--accent);
+    z-index: 9999;
+    transition: width 0.1s linear;
+    pointer-events: none;
+  `;
+  document.body.prepend(progressBar);
+
+  // ---- Custom Cursor (desktop only) ----
+  const isTouchDevice = window.matchMedia('(hover: none)').matches;
+  let cursor = null;
+
+  if (!isTouchDevice) {
+    cursor = document.createElement('div');
+    cursor.id = 'custom-cursor';
+    cursor.style.cssText = `
+      position: fixed;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      pointer-events: none;
+      z-index: 99999;
+      transform: translate(-50%, -50%);
+      transition: transform 0.15s var(--ease-out), opacity 0.2s, width 0.2s, height 0.2s;
+      opacity: 0;
+      mix-blend-mode: normal;
+    `;
+    document.body.appendChild(cursor);
+
+    let cursorX = 0;
+    let cursorY = 0;
+
+    document.addEventListener('mousemove', (e) => {
+      cursorX = e.clientX;
+      cursorY = e.clientY;
+      cursor.style.left = cursorX + 'px';
+      cursor.style.top = cursorY + 'px';
+      cursor.style.opacity = '1';
+    });
+
+    document.addEventListener('mouseleave', () => {
+      cursor.style.opacity = '0';
+    });
+
+    // Expand cursor on interactive elements
+    const interactives = document.querySelectorAll('a, button, .card, .cv__download-card, .badge');
+    interactives.forEach((el) => {
+      el.addEventListener('mouseenter', () => {
+        cursor.style.width = '20px';
+        cursor.style.height = '20px';
+        cursor.style.background = 'transparent';
+        cursor.style.border = '1.5px solid var(--accent)';
+      });
+      el.addEventListener('mouseleave', () => {
+        cursor.style.width = '8px';
+        cursor.style.height = '8px';
+        cursor.style.background = 'var(--accent)';
+        cursor.style.border = 'none';
+      });
+    });
+  }
 
   // ---- Navbar scroll behavior ----
   const nav = document.getElementById('navbar');
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav__link');
 
-  let lastScroll = 0;
   const SCROLL_THRESHOLD = 50;
 
   function handleNavScroll() {
     const currentScroll = window.scrollY;
 
-    // Add shadow on scroll
     if (currentScroll > SCROLL_THRESHOLD) {
       nav.classList.add('scrolled');
     } else {
       nav.classList.remove('scrolled');
     }
 
-    lastScroll = currentScroll;
+    // Update scroll progress bar
+    const totalHeight = document.body.scrollHeight - window.innerHeight;
+    const pct = totalHeight > 0 ? (currentScroll / totalHeight) * 100 : 0;
+    progressBar.style.width = pct + '%';
   }
 
   // ---- Active nav link tracking ----
@@ -83,12 +156,10 @@ document.addEventListener('DOMContentLoaded', () => {
   hamburger.addEventListener('click', toggleMobileNav);
   overlay.addEventListener('click', closeMobileNav);
 
-  // Close mobile nav on link click
   navLinks.forEach((link) => {
     link.addEventListener('click', closeMobileNav);
   });
 
-  // Close on escape key
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeMobileNav();
   });
@@ -113,7 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   revealElements.forEach((el) => revealObserver.observe(el));
 
-  // ---- Smooth scroll for anchor links ----
+  // ---- Smooth scroll — offset robusto con nav.offsetHeight ----
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener('click', (e) => {
       e.preventDefault();
@@ -121,7 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const targetElement = document.querySelector(targetId);
 
       if (targetElement) {
-        const navHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-height'));
+        const navHeight = nav ? nav.offsetHeight : 72;
         const targetPosition = targetElement.offsetTop - navHeight;
 
         window.scrollTo({
@@ -132,7 +203,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ---- Hero mouse glow effect ----
+  // ---- Hero mouse glow effect — más reactivo (0.06) ----
   const hero = document.querySelector('.hero');
   if (hero) {
     const glow1 = hero.querySelector('.hero__glow--1');
@@ -148,8 +219,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function animateGlow() {
-      currentX += (mouseX - currentX) * 0.03;
-      currentY += (mouseY - currentY) * 0.03;
+      currentX += (mouseX - currentX) * 0.06;
+      currentY += (mouseY - currentY) * 0.06;
 
       if (glow1) {
         glow1.style.left = currentX + 'px';
@@ -162,20 +233,10 @@ document.addEventListener('DOMContentLoaded', () => {
     animateGlow();
   }
 
-  // ---- Badge hover ripple ----
-  document.querySelectorAll('.badge').forEach((badge) => {
-    badge.addEventListener('mouseenter', () => {
-      badge.style.transform = 'scale(1.05)';
-    });
-    badge.addEventListener('mouseleave', () => {
-      badge.style.transform = 'scale(1)';
-    });
-  });
-
   // ---- Console easter egg ----
   console.log(
     '%c⚡ Elier Garcia — Portfolio',
-    'color: #4f8fff; font-size: 16px; font-weight: bold;'
+    'color: #0ea5a0; font-size: 16px; font-weight: bold;'
   );
   console.log(
     '%cBuilt from scratch. No templates, no shortcuts.',

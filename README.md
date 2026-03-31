@@ -2,7 +2,7 @@
 
 Personal portfolio website showcasing my hybrid profile: Electrical Engineering background + AI/Data applied projects.
 
-**Live:** [personalpage.vercel.app](https://personalpage-egarciav99.vercel.app)
+**Live:** [Pagina Personal Elier Garcia](https://egarciav99.github.io)
 
 ---
 
