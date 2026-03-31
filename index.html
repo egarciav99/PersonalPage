@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elier Garcia — Electrical Engineer · AI/Data · Madrid</title>
+  <meta name="description" content="Ingeniero Eléctrico con Máster en Business Analytics & IA. Experiencia en proyectos industriales (Microsoft, BMW Group) y aplicaciones de IA en producción. Basado en Madrid.">
+  <meta name="author" content="Elier Garcia">
+  <meta name="keywords" content="Elier Garcia, Electrical Engineer, AI Engineer, Data Analyst, Madrid, Portfolio">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Elier Garcia — Electrical Engineer · AI/Data">
+  <meta property="og:description" content="Ingeniero Eléctrico con Máster en Business Analytics & IA. Proyectos reales: Data Centers, plantas industriales y apps de IA en producción.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_ES">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="styles/index.css">
+  <link rel="stylesheet" href="styles/components.css">
+  <link rel="stylesheet" href="styles/sections.css">
+</head>
+<body>
+
+  <!-- ============ NAVIGATION ============ -->
+  <nav class="nav" id="navbar">
+    <div class="container nav__inner">
+      <a href="#hero" class="nav__logo" id="nav-logo">E<span>G</span></a>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="#about" class="nav__link" data-section="about">Sobre mí</a></li>
+        <li><a href="#portfolio" class="nav__link" data-section="portfolio">Proyectos</a></li>
+        <li><a href="#cv" class="nav__link" data-section="cv">CV & Stack</a></li>
+        <li><a href="#experience" class="nav__link" data-section="experience">Experiencia</a></li>
+        <li><a href="#contact" class="nav__link" data-section="contact">Contacto</a></li>
+      </ul>
+      <button class="nav__hamburger" id="nav-hamburger" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div class="nav__overlay" id="nav-overlay"></div>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero section-padding" id="hero">
+    <div class="hero__bg">
+      <div class="hero__grid"></div>
+      <div class="hero__glow hero__glow--1"></div>
+      <div class="hero__glow hero__glow--2"></div>
+    </div>
+
+    <div class="container hero__content">
+      <div class="hero__text">
+        <span class="hero__label">ENGINEER · BUILDER · PROBLEM SOLVER</span>
+        <h1 class="hero__name">
+          Elier <span class="gradient-text">Garcia</span>
+        </h1>
+        <p class="hero__title">Electrical Engineer · AI/Data · Madrid</p>
+        <p class="hero__tagline">"Building real things — from data centers to AI products."</p>
+
+        <div class="hero__actions">
+          <a href="#contact" class="btn btn--primary" id="hero-cta">
+            <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Contacto
+          </a>
+          <a href="https://www.linkedin.com/in/eliergv/" target="_blank" rel="noopener" class="btn btn--secondary" id="hero-linkedin">
+            <svg class="btn__icon" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            LinkedIn
+          </a>
+          <a href="https://github.com/egarciav99" target="_blank" rel="noopener" class="btn btn--ghost" id="hero-github">
+            <svg class="btn__icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+            GitHub
+          </a>
+        </div>
+      </div>
+
+      <div class="hero__photo-wrapper">
+        <div class="hero__photo-border">
+          <div class="hero__photo-placeholder" id="hero-photo">
+            EG
+          </div>
+        </div>
+        <div class="hero__status">Disponible para trabajar</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="about section-padding" id="about">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">// sobre mí</span>
+        <h2 class="section-title">De Chihuahua a Madrid.<br>De obra a código.</h2>
+      </div>
+
+      <div class="about__content">
+        <div class="about__text reveal">
+          <p>
+            Soy <strong>Elier Garcia</strong>, ingeniero eléctrico de Chihuahua, México. Crecí resolviendo problemas con las manos — supervisando la instalación eléctrica de un <strong>Data Center de Microsoft</strong> y una planta de <strong>BMW Group</strong>, gestionando subcontratistas, materiales y deadlines reales en campo.
+          </p>
+          <p>
+            En 2025 me mudé a <strong>Madrid</strong> para cursar un Máster en Business Analytics & IA en INESDI. Durante el programa, construí de forma independiente tres aplicaciones full-stack con IA en producción: desde un SaaS con RAG hasta una app de nutrición con pipelines de datos y dashboards analíticos.
+          </p>
+          <p>
+            No vengo del mundo tech por moda. Vengo de la ingeniería de verdad, donde si algo falla, se nota. <strong>Ese estándar lo aplico a cada línea de código.</strong> Busco mi primera posición en Europa en Data, AI Engineering o Ingeniería Eléctrica — con la misma mentalidad con la que ya he entregado proyectos reales.
+          </p>
+        </div>
+
+        <div class="about__highlights reveal reveal-delay-2">
+          <div class="about__highlight">
+            <div class="about__highlight-icon">📍</div>
+            <div class="about__highlight-content">
+              <span class="about__highlight-label">Ubicación</span>
+              <span class="about__highlight-value">Madrid, España</span>
+            </div>
+          </div>
+          <div class="about__highlight">
+            <div class="about__highlight-icon">🎓</div>
+            <div class="about__highlight-content">
+              <span class="about__highlight-label">Formación</span>
+              <span class="about__highlight-value">Máster Business Analytics & IA — INESDI (2026)</span>
+            </div>
+          </div>
+          <div class="about__highlight">
+            <div class="about__highlight-icon">⚡</div>
+            <div class="about__highlight-content">
+              <span class="about__highlight-label">Background</span>
+              <span class="about__highlight-value">Ing. Eléctrica — TECNM Chihuahua (92.7/100)</span>
+            </div>
+          </div>
+          <div class="about__highlight">
+            <div class="about__highlight-icon">🌍</div>
+            <div class="about__highlight-content">
+              <span class="about__highlight-label">Idiomas</span>
+              <span class="about__highlight-value">Español nativo · Inglés C1 · Alemán básico</span>
+            </div>
+          </div>
+          <div class="about__highlight">
+            <div class="about__highlight-icon">🟢</div>
+            <div class="about__highlight-content">
+              <span class="about__highlight-label">Estado</span>
+              <span class="about__highlight-value">Disponibilidad inmediata</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PORTFOLIO ============ -->
+  <section class="portfolio section-padding" id="portfolio">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">// proyectos</span>
+        <h2 class="section-title">Lo que he construido</h2>
+        <p class="section-subtitle">Tres aplicaciones full-stack con IA, desplegadas en producción. Código propio, sin tutoriales.</p>
+      </div>
+
+      <div class="portfolio__grid">
+        <!-- Bocado AI -->
+        <div class="card project-card reveal reveal-delay-1" id="project-bocado">
+          <div class="card__icon">🥗</div>
+          <h3 class="card__title"><a href="https://bocado-ai.vercel.app" target="_blank" rel="noopener">Bocado AI</a></h3>
+          <span class="card__subtitle">App de nutrición personalizada con IA</span>
+          <p class="card__description">
+            Arquitectura full-stack de producción: React 19 + TypeScript + Firebase en backend, Gemini AI para planes nutricionales personalizados. Pipeline Firestore → BigQuery con dashboards en Looker Studio. Tests E2E con Playwright, CI/CD con GitHub Actions y monitoreo con Sentry.
+          </p>
+          <div class="card__footer">
+            <div class="badges-wrap">
+              <span class="badge">React 19</span>
+              <span class="badge">TypeScript</span>
+              <span class="badge">Firebase</span>
+              <span class="badge">BigQuery</span>
+              <span class="badge badge--accent">Gemini AI</span>
+              <span class="badge">Looker Studio</span>
+              <span class="badge">n8n</span>
+              <span class="badge">CI/CD</span>
+            </div>
+            <a href="https://bocado-ai.vercel.app" target="_blank" rel="noopener" class="project-card__link">Ver demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
+          </div>
+        </div>
+
+        <!-- CoverCraft -->
+        <div class="card project-card reveal reveal-delay-2" id="project-covercraft">
+          <div class="card__icon">✍️</div>
+          <h3 class="card__title"><a href="https://coverletter2.vercel.app" target="_blank" rel="noopener">CoverCraft</a></h3>
+          <span class="card__subtitle">SaaS — Generador de cartas con IA</span>
+          <p class="card__description">
+            SaaS end-to-end: el usuario sube su CV, n8n orquesta la IA vía webhook, genera una carta que persiste en Supabase y se exporta como PDF profesional. Soporte multi-idioma (ES/EN/FR) con next-intl. Seguridad SSR con middleware personalizado.
+          </p>
+          <div class="card__footer">
+            <div class="badges-wrap">
+              <span class="badge">Next.js 15</span>
+              <span class="badge">TypeScript</span>
+              <span class="badge">Supabase</span>
+              <span class="badge">n8n</span>
+              <span class="badge">TipTap</span>
+              <span class="badge badge--accent">next-intl</span>
+              <span class="badge">PDF Export</span>
+            </div>
+            <a href="https://coverletter2.vercel.app" target="_blank" rel="noopener" class="project-card__link">Ver demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
+          </div>
+        </div>
+
+        <!-- PDF Technical Assistant -->
+        <div class="card project-card reveal reveal-delay-3" id="project-pdf-assistant">
+          <div class="card__icon">📄</div>
+          <h3 class="card__title"><a href="https://pdf-tech-assistant2.vercel.app" target="_blank" rel="noopener">PDF Technical Assistant</a></h3>
+          <span class="card__subtitle">Chatbot RAG sobre documentos técnicos</span>
+          <p class="card__description">
+            Sistema RAG completo: extracción de PDFs, chunking inteligente, embeddings con Gemini (text-embedding-004) y búsqueda semántica en Supabase pgvector. Cloud Functions serverless para pipeline automático y chat con historial persistente.
+          </p>
+          <div class="card__footer">
+            <div class="badges-wrap">
+              <span class="badge">React 18</span>
+              <span class="badge">Firebase Functions</span>
+              <span class="badge badge--violet">Supabase pgvector</span>
+              <span class="badge badge--accent">Gemini AI</span>
+              <span class="badge">RAG</span>
+              <span class="badge">Vitest</span>
+            </div>
+            <a href="https://pdf-tech-assistant2.vercel.app" target="_blank" rel="noopener" class="project-card__link">Ver demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CV & STACK ============ -->
+  <section class="cv section-padding" id="cv">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">// cv & stack técnico</span>
+        <h2 class="section-title">Herramientas & Currículum</h2>
+        <p class="section-subtitle">Descarga mi CV en el perfil que necesites y explora mi stack técnico.</p>
+      </div>
+
+      <!-- Download Cards -->
+      <div class="cv__downloads reveal">
+        <a href="Elier_Garcia_CV_ES.pdf" download class="cv__download-card" id="cv-download-data-es">
+          <div class="cv__download-icon">📊</div>
+          <div class="cv__download-info">
+            <div class="cv__download-title">CV Data & IA — Español</div>
+            <div class="cv__download-subtitle">PDF · Business Analytics & IA</div>
+          </div>
+        </a>
+        <a href="Elier_Garcia_CV_EN.pdf" download class="cv__download-card" id="cv-download-data-en">
+          <div class="cv__download-icon">🌍</div>
+          <div class="cv__download-info">
+            <div class="cv__download-title">CV Data & AI — English</div>
+            <div class="cv__download-subtitle">PDF · Business Analytics & AI</div>
+          </div>
+        </a>
+        <a href="Elier_Garcia_CV_EL.pdf" download class="cv__download-card" id="cv-download-electrical">
+          <div class="cv__download-icon">⚡</div>
+          <div class="cv__download-info">
+            <div class="cv__download-title">CV Ingeniería Eléctrica</div>
+            <div class="cv__download-subtitle">PDF · Instalaciones industriales</div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Tech Stack -->
+      <div class="reveal">
+        <div class="cv__stack-section">
+          <div class="cv__stack-label">Frontend</div>
+          <div class="badges-wrap">
+            <span class="badge badge--accent">React</span>
+            <span class="badge badge--accent">Next.js</span>
+            <span class="badge badge--accent">TypeScript</span>
+            <span class="badge">HTML / CSS</span>
+            <span class="badge">TipTap</span>
+            <span class="badge">Zustand</span>
+            <span class="badge">TanStack Query</span>
+            <span class="badge">React Hook Form</span>
+            <span class="badge">Zod</span>
+          </div>
+        </div>
+
+        <div class="cv__stack-section">
+          <div class="cv__stack-label">Backend & Cloud</div>
+          <div class="badges-wrap">
+            <span class="badge badge--violet">Firebase</span>
+            <span class="badge badge--violet">Supabase</span>
+            <span class="badge badge--violet">Cloud Functions</span>
+            <span class="badge">Node.js</span>
+            <span class="badge">BigQuery</span>
+            <span class="badge">PostgreSQL</span>
+            <span class="badge">GCP</span>
+          </div>
+        </div>
+
+        <div class="cv__stack-section">
+          <div class="cv__stack-label">AI / ML & Data</div>
+          <div class="badges-wrap">
+            <span class="badge badge--accent">Gemini AI</span>
+            <span class="badge badge--accent">RAG</span>
+            <span class="badge">pgvector</span>
+            <span class="badge">Embeddings</span>
+            <span class="badge">OpenAI APIs</span>
+            <span class="badge">Python</span>
+            <span class="badge">Pandas</span>
+            <span class="badge">NumPy</span>
+            <span class="badge">Machine Learning</span>
+            <span class="badge">ETL / ELT</span>
+          </div>
+        </div>
+
+        <div class="cv__stack-section">
+          <div class="cv__stack-label">DevOps & Tooling</div>
+          <div class="badges-wrap">
+            <span class="badge">CI/CD</span>
+            <span class="badge">GitHub Actions</span>
+            <span class="badge">Vitest</span>
+            <span class="badge">Playwright</span>
+            <span class="badge">Sentry</span>
+            <span class="badge">n8n</span>
+            <span class="badge">Make</span>
+            <span class="badge">Looker Studio</span>
+            <span class="badge">Power BI</span>
+          </div>
+        </div>
+
+        <div class="cv__stack-section">
+          <div class="cv__stack-label">Ingeniería Eléctrica</div>
+          <div class="badges-wrap">
+            <span class="badge badge--success">AutoCAD</span>
+            <span class="badge badge--success">OPUS</span>
+            <span class="badge badge--success">Instalaciones BT/MT</span>
+            <span class="badge badge--success">Normativa NEC/IEC</span>
+            <span class="badge">Supervisión de obra</span>
+            <span class="badge">Gestión de subcontratistas</span>
+            <span class="badge">Office 365</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EXPERIENCE ============ -->
+  <section class="experience section-padding" id="experience">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">// experiencia</span>
+        <h2 class="section-title">Trayectoria profesional</h2>
+      </div>
+
+      <div class="experience__content">
+        <div class="timeline">
+          <!-- Job 1: Residente -->
+          <div class="timeline__item reveal">
+            <div class="timeline__dot"></div>
+            <span class="timeline__date">Ene 2024 — Feb 2025</span>
+            <h3 class="timeline__title">Residente de Construcción Eléctrica</h3>
+            <p class="timeline__company">DEMEK S.A. de C.V. · Querétaro / San Luis Potosí, México</p>
+            <div class="timeline__tags">
+              <span class="badge badge--accent">Media Tensión</span>
+              <span class="badge">BT Exteriores</span>
+              <span class="badge">Cuartos Eléctricos</span>
+              <span class="badge badge--success">Microsoft Data Center</span>
+              <span class="badge badge--success">BMW Group</span>
+            </div>
+            <ul class="timeline__description">
+              <li>Gestión de requisiciones y tracking de materiales en tres frentes eléctricos simultáneos del <strong>Data Center de Microsoft</strong> Querétaro — 0 paradas por desabasto en 14 meses.</li>
+              <li>Supervisión de la instalación eléctrica de un edificio completo en la planta <strong>BMW Group</strong> (San Luis Potosí) — coordinando subcontratistas y actuando como punto de contacto técnico con el cliente.</li>
+              <li>Verificación de cumplimiento de especificaciones técnicas y estándares de seguridad en campo durante el ciclo de vida completo de ambos proyectos.</li>
+            </ul>
+          </div>
+
+          <!-- Job 2: Analista -->
+          <div class="timeline__item reveal reveal-delay-2">
+            <div class="timeline__dot"></div>
+            <span class="timeline__date">Ene 2023 — Ene 2024</span>
+            <h3 class="timeline__title">Analista de Presupuestos Eléctricos</h3>
+            <p class="timeline__company">DEMEK S.A. de C.V. · Chihuahua, México</p>
+            <div class="timeline__tags">
+              <span class="badge">AutoCAD</span>
+              <span class="badge">OPUS</span>
+              <span class="badge">Excel</span>
+              <span class="badge">Cotizaciones</span>
+            </div>
+            <ul class="timeline__description">
+              <li>Ejecución del ciclo completo de presupuestación eléctrica: lectura de planos en AutoCAD, cuantificación de materiales, traslado a OPUS, cotizaciones con proveedores y aplicación de indirectos.</li>
+              <li>Elaboración y presentación de propuestas financieras al cliente — con adjudicación del proyecto Terex en Nuevo León.</li>
+              <li>Gestión de la relación con proveedores para obtención de los mejores precios de materiales eléctricos.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="contact section-padding" id="contact">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">// contacto</span>
+        <h2 class="section-title">Hablemos</h2>
+      </div>
+
+      <div class="contact__content reveal">
+        <p class="contact__message">
+          Disponible para oportunidades en <strong>Data, AI Engineering</strong> o <strong>Ingeniería Eléctrica</strong> en España. Si crees que encajo en tu equipo, escríbeme.
+        </p>
+
+        <div class="contact__actions">
+          <a href="mailto:eliergv.99@gmail.com" class="btn btn--primary" id="contact-email">
+            <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            eliergv.99@gmail.com
+          </a>
+          <a href="https://www.linkedin.com/in/eliergv/" target="_blank" rel="noopener" class="btn btn--secondary" id="contact-linkedin">
+            <svg class="btn__icon" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            LinkedIn
+          </a>
+        </div>
+
+        <div class="contact__info">
+          <div class="contact__info-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Madrid, España</span>
+          </div>
+          <div class="contact__info-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>+34 604 280 860</span>
+          </div>
+          <div class="contact__info-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            <span>Disponibilidad inmediata</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p class="footer__text">
+        © <span id="footer-year"></span> Elier Garcia · Diseñado y desarrollado a mano ⚡
+      </p>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/eliergv/" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <a href="https://github.com/egarciav99" target="_blank" rel="noopener" class="social-link" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+        </a>
+        <a href="mailto:eliergv.99@gmail.com" class="social-link" aria-label="Email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="scripts/main.js"></script>
+</body>
+</html>
